@@ -14,6 +14,6 @@
  * necesarias para el correcto funcionamiento del sistema.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+
  */
 package com.andina.trading.util;

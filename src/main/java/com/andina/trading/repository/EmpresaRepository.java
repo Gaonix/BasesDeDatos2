@@ -11,7 +11,7 @@ import java.util.Optional;
  *
  * <p>Permite realizar operaciones de persistencia y consultas personalizadas sobre la entidad Empresa.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {

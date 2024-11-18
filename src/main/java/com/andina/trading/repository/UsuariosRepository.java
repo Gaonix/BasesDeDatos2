@@ -10,7 +10,7 @@ import java.util.Optional;
  *
  * <p>Permite realizar operaciones de persistencia y consultas personalizadas sobre la entidad Usuarios.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {

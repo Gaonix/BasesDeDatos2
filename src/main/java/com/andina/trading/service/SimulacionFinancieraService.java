@@ -26,7 +26,7 @@ import java.util.List;
  * <p>Este servicio interactúa con la API de Yahoo Finance para obtener datos de mercado y
  * realizar simulaciones de proyección de precios futuros de acciones.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 @Service

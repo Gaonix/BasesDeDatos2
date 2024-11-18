@@ -20,8 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * {@code @AutoConfigureMockMvc} para configurar el objeto {@link MockMvc} que permite simular solicitudes HTTP.</p>
  *
  * @version 1.0
- * @author
- * Danniel Parra, Gabriel Mera
+
  */
 @SpringBootTest
 @AutoConfigureMockMvc

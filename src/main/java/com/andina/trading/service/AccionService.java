@@ -25,7 +25,7 @@ import java.util.List;
  *
  * <p>La clase se encarga de obtener datos de precios de acciones en tiempo real y persistirlos en la base de datos.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+ 
  * @version 1.0
  */
 @Service

@@ -23,8 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * solicitudes HTTP simuladas.</p>
  *
  * @version 1.0
- * @author
- * Danniel Parra, Gabriel Mera
+
  */
 @SpringBootTest
 @AutoConfigureMockMvc

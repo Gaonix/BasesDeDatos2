@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  *
  * <p>Esta clase está mapeada a la tabla "empresas" en la base de datos.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 @Entity

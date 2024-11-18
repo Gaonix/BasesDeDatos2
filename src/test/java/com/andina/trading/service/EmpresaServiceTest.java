@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
  * garantizar que la lógica de negocio de {@link EmpresaService} funcione correctamente.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+ 
  */
 public class EmpresaServiceTest {
 

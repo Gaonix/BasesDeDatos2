@@ -20,7 +20,7 @@ import static org.mockito.Mockito.mock;
  * garantizando que la lógica de negocio de {@link SimulacionFinancieraService} funcione correctamente.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+ 
  */
 public class SimulacionFinancieraServiceTest {
 

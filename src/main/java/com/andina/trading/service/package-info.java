@@ -14,6 +14,6 @@
  * y utilizan repositorios para persistir y recuperar datos de la base de datos.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+
  */
 package com.andina.trading.service;

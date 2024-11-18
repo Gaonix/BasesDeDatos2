@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
  * que la lógica de negocio de {@link AccionService} funcione correctamente.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+
  */
 public class AccionServiceTest {
 

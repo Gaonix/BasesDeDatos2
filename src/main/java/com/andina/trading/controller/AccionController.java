@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * <p>La anotación {@code @Controller} define esta clase como un controlador en Spring MVC.
  * La anotación {@code @RequestMapping} establece la ruta base para todas las solicitudes a este controlador.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+ *
  * @version 1.0
  */
 @Controller

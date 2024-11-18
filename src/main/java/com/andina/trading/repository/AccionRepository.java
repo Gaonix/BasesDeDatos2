@@ -10,7 +10,6 @@ import java.util.Optional;
  *
  * <p>Permite realizar operaciones de persistencia y consultas personalizadas sobre la entidad Accion.</p>
  *
- * @author Danniel Parra, Gabriel Mera
  * @version 1.0
  */
 public interface AccionRepository extends JpaRepository<Accion, Long> {

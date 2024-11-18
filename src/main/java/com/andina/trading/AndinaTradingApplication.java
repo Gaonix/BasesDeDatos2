@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  *
  * <p>La anotación {@code @EnableScheduling} permite la ejecución de tareas programadas definidas en la aplicación.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+ *
  * @version 1.0
  */
 @SpringBootApplication

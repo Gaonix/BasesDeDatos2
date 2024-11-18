@@ -28,7 +28,7 @@ import java.util.Optional;
  * Incluye funcionalidad para listar, agregar, editar, eliminar, autenticar usuarios,
  * y gestionar la compra y venta de acciones.
  *
- * @author Danniel Parra, Gabriel Mera
+ * 
  * @version 1.0
  */
 @Controller

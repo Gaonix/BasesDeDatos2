@@ -13,8 +13,7 @@ import java.util.Optional;
  *
  * <p>Este servicio actúa como una capa intermedia entre el controlador y el repositorio,
  * facilitando la lógica de negocio relacionada con las empresas.</p>
- *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 @Service

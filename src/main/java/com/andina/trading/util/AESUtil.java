@@ -12,7 +12,7 @@ import java.util.Base64;
  * <p>Esta clase está diseñada para facilitar el cifrado de texto y mantener la seguridad de los datos
  * mediante el uso de un algoritmo de cifrado simétrico (AES).</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 public class AESUtil {

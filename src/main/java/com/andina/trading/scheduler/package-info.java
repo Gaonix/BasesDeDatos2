@@ -12,6 +12,6 @@
  * </ul>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+
  */
 package com.andina.trading.scheduler;

@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * y puede ser procesada por el contenedor de Spring para generar definiciones de bean y solicitudes de servicio
  * en tiempo de ejecución.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 @Configuration

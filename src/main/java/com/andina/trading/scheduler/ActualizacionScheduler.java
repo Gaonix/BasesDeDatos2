@@ -15,7 +15,7 @@ import com.andina.trading.service.AccionService;
  * <p>El método de actualización se ejecuta con un retraso inicial de 1 segundo y se repite
  * cada 60 segundos.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 @Component

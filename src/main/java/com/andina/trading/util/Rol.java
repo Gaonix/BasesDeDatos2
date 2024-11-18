@@ -12,7 +12,7 @@ package com.andina.trading.util;
  * <p>Esta enumeración se utiliza para gestionar y asignar permisos y accesos
  * a diferentes funcionalidades de la aplicación.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+
  * @version 1.0
  */
 public enum Rol {

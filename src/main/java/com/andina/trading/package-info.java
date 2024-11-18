@@ -16,6 +16,6 @@
  * sobre la cual se construyen todos los demás componentes de la aplicación.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+ * 
  */
 package com.andina.trading;

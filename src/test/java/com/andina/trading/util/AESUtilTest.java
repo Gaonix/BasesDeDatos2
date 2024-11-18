@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * resultante coincida con el original.</p>
  *
  * @version 1.0
- * @autor Danniel Parra, Gabriel Mera
+
  */
 public class AESUtilTest {
 

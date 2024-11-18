@@ -9,7 +9,7 @@ import jakarta.persistence.*;
  *
  * <p>Esta clase está mapeada a la tabla "usuario_empresas" en la base de datos.</p>
  *
- * @author Danniel Parra, Gabriel Mera
+ 
  * @version 1.0
  */
 @Entity

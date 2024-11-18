@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Acciones y Simulación Financiera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilos generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+        }
+        body {
+            background-color: #f2f4f6;
+            color: #333;
+        }
+        .navbar {
+            background-color: #273746;
+            padding: 5px 10%;
+            height: 85px;
+        }
+        .navbar-brand {
+            color: #eceff1;
+            font-weight: 700;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .navbar-brand:hover {
+            color: #d0d3d4;
+        }
+        .navbar-nav .nav-link {
+            color: #eceff1;
+            padding: 0 15px;
+            transition: transform 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #d0d3d4;
+            transform: scale(1.1);
+        }
+        .btn-custom {
+            margin-left: 20px;
+            font-weight: 700;
+            color: #1b3039;
+            padding: 9px 25px;
+            background: #eceff1;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #e2f1f8;
+            color: #273746;
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .animated-title {
+            animation: pulse 2s infinite;
+        }
+        .card {
+            border-radius: 12px;
+            border: none;
+        }
+        .form-select, .form-control {
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #273746;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/inicio">Andina Trading</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/listausuarios">Lista de Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="/acciones">Ver Acciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="/perfil">Ver Perfil</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 animated-title">Acciones en Tiempo Real</h1>
+
+    <!-- Gráfico de precios de acciones -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <canvas id="myChart" style="max-height: 400px;"></canvas>
+        </div>
+    </div>
+
+    <!-- Formulario para comprar acciones -->
+    <div class="mt-5">
+        <h2 class="text-center mb-4">Comprar Acciones</h2>
+        <form th:action="@{/comprar}" method="post" class="d-flex justify-content-center">
+            <select name="empresa" id="empresa2" class="form-select me-2 w-25" required>
+                <option value="" disabled selected>Seleccione una empresa</option>
+                <option th:each="empresa : ${empresas}" th:value="${empresa.nombreEmpresa}" th:text="${empresa.nombreEmpresa}"></option>
+            </select>
+            <input type="number" name="cantidad" class="form-control me-2 w-25" placeholder="Cantidad" min="1" required>
+            <button type="submit" class="btn btn-success">Comprar</button>
+        </form>
+    </div>
+
+    <!-- Formulario para simular el precio de una acción -->
+    <div class="mt-5">
+        <h2 class="text-center mb-4">Simular Precio de Acciones</h2>
+        <form id="simulacionForm" class="d-flex justify-content-center">
+            <select name="simbolo" id="simbolo" class="form-select me-2 w-25" required>
+                <option value="" disabled selected>Seleccione una empresa para simular</option>
+                <option th:each="empresa : ${empresas}" th:value="${empresa.nombreEmpresa}" th:text="${empresa.nombreEmpresa}"></option>
+            </select>
+            <button type="button" class="btn btn-primary" onclick="simularPrecio()">Ejecutar Simulación</button>
+        </form>
+    </div>
+
+    <h3 id="proyeccionResultado" class="mt-4 text-center">Proyección de precio futuro: <span id="proyeccionPrecio">--</span> USD</h3>
+</div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const acciones = /*[[${acciones}]]*/ [];
+    const empresas = [...new Set(acciones.map(a => a.nombreEmpresa))];
+
+    const datasets = empresas.map((empresa, index) => {
+        const datosEmpresa = acciones.filter(a => a.nombreEmpresa === empresa);
+        return {
+            label: empresa,
+            data: datosEmpresa.map(d => d.precioActual),
+            borderColor: `hsl(${index * 60}, 70%, 50%)`,
+            borderWidth: 1,
+            fill: false
+        };
+    });
+
+    const labels = acciones
+        .filter(a => a.nombreEmpresa === empresas[0])
+        .map(a => new Date(a.fechaActualizacion).toLocaleTimeString());
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels: labels, datasets: datasets },
+        options: { responsive: true }
+    });
+
+    function simularPrecio() {
+        const simbolo = document.getElementById("simbolo").value;
+        if (simbolo) {
+            fetch(`/simulacion/proyectar?simbolo=${simbolo}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("proyeccionPrecio").innerText = data;
+                })
+                .catch(error => console.error('Error en la simulación:', error));
+        }
+    }
+    /*]]>*/
+</script>
+
+<script>
+    // Recargar la página cada 60 segundos
+    setTimeout(() => {
+        location.reload();
+    }, 60000); // 60000 milisegundos = 60 segundos
+</script>
+</body>
+</html>

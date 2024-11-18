@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andina Trading - Transaction Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Generales */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #000;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #273746;
+            padding: 5px 10%;
+            height: 85px;
+        }
+        .navbar-brand {
+            color: #eceff1;
+            font-weight: 700;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .navbar-brand:hover {
+            color: #d0d3d4;
+        }
+        .navbar-nav .nav-link {
+            color: #eceff1;
+            padding: 0 15px;
+            transition: transform 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #d0d3d4;
+            transform: scale(1.1);
+        }
+
+        h1 {
+            margin: 0;
+            animation: moveTitle 3s infinite;
+        }
+
+
+        /* Contenido Principal */
+        .content {
+            display: flex;
+            margin-top: 50px;
+            align-items: center;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .description {
+            flex: 1;
+            padding-left: 30px;
+        }
+        .description p {
+            line-height: 1.8;
+        }
+        .slogan {
+            font-style: italic;
+            color: #273746;
+            text-align: center;
+            margin-top: 50px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Íconos Sociales */
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .social-icons a {
+            color: #7B8F74;
+            font-size: 24px;
+            margin-left: 10px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #5A6B55;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/inicio">Andina Trading</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/listausuarios">Lista de Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="/acciones">Ver Acciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="/perfil">Ver Perfil</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="content">
+        <div class="hero-image">
+            <img th:src="@{/img/LogoA.png}" alt="Logo de Andina Trading">
+        </div>
+        <div class="description">
+            <h2>Bienvenido a Andina Trading</h2>
+            <p>Andina Trading es una plataforma avanzada de gestión de transacciones bursátiles diseñada para inversionistas
+                de todo el mundo. Nuestra solución permite acceder a datos en tiempo real y gestionar acciones de mercados
+                internacionales, brindando a los usuarios la flexibilidad de operar con cualquier acción disponible en las
+                principales bolsas de valores globales. Nos especializamos en ofrecer herramientas de análisis y simulación para
+                optimizar decisiones de inversión, garantizando un enfoque seguro y eficiente para maximizar el rendimiento financiero.</p>
+        </div>
+    </div>
+    <p class="slogan">Andina Trading: Transformando desafíos en oportunidades financieras.</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario - Andina Trading</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos Generales */
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #273746;
+      padding: 5px 10%;
+      width: 100%;
+    }
+    .navbar-brand {
+      color: #eceff1;
+      font-weight: 700;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .navbar-brand:hover {
+      color: #d0d3d4;
+    }
+    .navbar-nav .nav-link {
+      color: #eceff1;
+      padding: 0 15px;
+      transition: transform 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #d0d3d4;
+      transform: scale(1.1);
+    }
+
+    /* Estilo de la tarjeta de perfil */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    .carta {
+      width: 450px;
+      border: 1px solid #273746;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #273746;
+      color: #eceff1;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .fondoCarta {
+      width: 100%;
+      height: auto;
+    }
+    .fotoPerfil {
+      position: relative;
+      margin-top: -50px;
+      border-radius: 80px;
+      width: 150px;
+      border: 2px solid #eceff1;
+      z-index: 2;
+    }
+    .carta p:nth-child(3) {
+      margin-top: 0.5rem;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .carta p:nth-child(4) {
+      font-size: 20px;
+      margin-top: -10px;
+    }
+    .info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding: 10px;
+      border-top: 1px solid #eceff1;
+      border-bottom: 1px solid #eceff1;
+    }
+    .info div {
+      width: 50%;
+      text-align: center;
+      font-size: 18px;
+    }
+    .acciones-compradas {
+      width: 100%;
+      margin-top: 15px;
+    }
+    .acciones-compradas table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .acciones-compradas th, .acciones-compradas td {
+      border: 1px solid #eceff1;
+      padding: 8px;
+      text-align: center;
+    }
+    .acciones-compradas th {
+      background-color: #1f2b36;
+    }
+    .boton-vender {
+      background-color: #ff4d4d;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .boton-vender:hover {
+      background-color: #e03b3b;
+    }
+    .boton {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    #botonCerrarSesion {
+      background-color: #7B8F74;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    #botonCerrarSesion:hover {
+      background-color: #5A6B55;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/inicio">Andina Trading</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/listausuarios">Lista de Usuarios</a></li>
+        <li class="nav-item"><a class="nav-link" href="/acciones">Ver Acciones</a></li>
+        <li class="nav-item"><a class="nav-link" href="/perfil">Ver Perfil</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <section class="carta">
+    <img th:src="@{/img/fondo.webp}" alt="Fondo de la carta" class="fondoCarta">
+    <img th:src="@{/img/icono.webp}" alt="Foto de perfil" class="fotoPerfil">
+
+    <p><span th:text="${userNombre}">Nombre</span></p>
+    <p><span th:text="${userEmail}">Correo</span></p>
+    <p th:text="${userRole}">Cargo del Usuario</p>
+
+    <section class="info">
+      <div>Balance</div>
+      <div><p th:text="${userBalance}">0.00 </p>USD</div>
+    </section>
+
+    <section class="acciones-compradas">
+      <h5>Acciones Compradas</h5>
+      <table>
+        <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Cantidad</th>
+          <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="compra : ${empresasUsuario}">
+          <td th:text="${compra.empresa.nombreEmpresa}">Empresa</td>
+          <td th:text="${compra.cantidad}">0</td>
+          <td>
+            <form th:action="@{/vender}" method="post">
+              <input type="hidden" name="empresa" th:value="${compra.empresa.nombreEmpresa}">
+              <input type="number" name="cantidad" min="1" max="[[${compra.cantidad}]]" placeholder="Cantidad" required class="form-control mb-2">
+              <button type="submit" class="boton-vender">Vender</button>
+            </form>
+          </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(empresasUsuario)}">
+          <td colspan="3">No hay acciones compradas</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="boton">
+      <a href="/logout" id="botonCerrarSesion">Cerrar sesión</a>
+    </section>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f4f6;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            margin: 0;
+            padding-top: 85px; /* Espacio para la barra de navegación */
+        }
+        .navbar {
+            background-color: #273746;
+            padding: 5px 10%;
+            height: 85px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            color: #eceff1;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .navbar-brand:hover {
+            color: #d0d3d4;
+        }
+        .navbar-nav .nav-link {
+            color: #eceff1;
+            padding: 0 15px;
+            transition: transform 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #d0d3d4;
+            transform: scale(1.1);
+        }
+        h1 {
+            color: #d9534f;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .btn-home {
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .btn-home:hover {
+            background-color: #31b0d5;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/inicio">Andina Trading</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container text-center">
+    <h1>Ocurrió un error</h1>
+    <p>Lo sentimos, ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.</p>
+    <a href="/index" class="btn-home">Volver al inicio de sesión</a>
+</div>
+</body>
+</html>
